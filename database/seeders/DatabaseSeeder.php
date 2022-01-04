@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -13,7 +14,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        //  \App\Models\Cetagory::factory(10)->create();
-         \App\Models\SubCategory::factory(10)->create();
+        $this->call([
+            CetagorySeeder::class,
+            SubcetagorySeeder::class,
+            SupSubcetagorySeeder::class,
+        ]);
     }
 }
