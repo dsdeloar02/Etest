@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CetagoryController;
+use App\Http\Controllers\SubcetagoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +19,13 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/categories', [CetagoryController::class, 'index']);
+Route::get('/category', [CetagoryController::class, 'store']);
+
+Route::get('/subcategories', [SubcetagoryController::class, 'index']);
+Route::post('/subcategory', [SubcetagoryController::class, 'store']);
+
+Route::get('/supsubcategories', [SupSubcetagoryController::class, 'index']);
+Route::post('/supsubcategory', [SupSubcetagoryController::class, 'store']);
+

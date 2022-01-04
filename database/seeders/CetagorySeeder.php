@@ -14,6 +14,6 @@ class CetagorySeeder extends Seeder
      */
     public function run()
     {
-        Cetagory::factory()->times(30)->create();
+        Cetagory::factory()->times(50)->create();
     }
 }
