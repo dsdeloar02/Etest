@@ -46,4 +46,48 @@ class CetagoryController extends Controller
 
                  
     }
+    public function update(Request $request, $id)
+    {
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'cetagories_name' => 'required|string|between:2,30',
+                'cetagories_icon' => 'required',
+            ]
+        );
+
+
+        if ($validator->fails()) {
+            return response()->json(
+                [$validator->errors()],
+                422
+            );
+        }
+
+        $category = Cetagory::findOrFail($id)->update(
+            array_merge(
+                $validator->validated()
+            )
+        );
+
+        if ($category) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Category updated successfully.'
+            ], 201);
+        }
+    }
+    public function destory($id)
+    {
+        $category = Cetagory::findOrFail($id);
+
+       if($category)
+       {
+           $category->delete();
+           return response()->json(
+                ['message'=>'Category deleted successfully'],
+                422
+            );
+       } 
+    }
 }

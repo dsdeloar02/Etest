@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+// use Database\Seeders\CurrencySeeder;
 
 
 class DatabaseSeeder extends Seeder
@@ -18,6 +19,7 @@ class DatabaseSeeder extends Seeder
             CetagorySeeder::class,
             SubcetagorySeeder::class,
             SupSubcetagorySeeder::class,
+            CurrencySeeder::class,
         ]);
     }
 }

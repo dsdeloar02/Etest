@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CetagoryController;
+use App\Http\Controllers\CurrencyController;
 use App\Http\Controllers\SubcetagoryController;
 
 /*
@@ -20,12 +21,22 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+
 Route::get('/categories', [CetagoryController::class, 'index']);
-Route::get('/category', [CetagoryController::class, 'store']);
+Route::post('/category', [CetagoryController::class, 'store']);
+Route::put('/category/{id}', [CetagoryController::class, 'update']);
+Route::delete('/category/{id}', [CetagoryController::class, 'destory']);
+
 
 Route::get('/subcategories', [SubcetagoryController::class, 'index']);
 Route::post('/subcategory', [SubcetagoryController::class, 'store']);
 
+
 Route::get('/supsubcategories', [SupSubcetagoryController::class, 'index']);
 Route::post('/supsubcategory', [SupSubcetagoryController::class, 'store']);
+
+
+Route::get('/currencies', [CurrencyController::class, 'index']);
+Route::post('/currency', [CurrencyController::class, 'store']);
+
 
